@@ -1,0 +1,12 @@
+/* the notification class doesnt have to be a unique throughout the project as it is not the actual calssname that will be rendered => webpack will replace this classname with another generated classname that gonna be rendered on the page => in webpack config we will set up css module*/
+/* purgecss ignore is important comment this comment will tell purgecss that this comment should not be removed it is safe to keep in final css otherwise purgecss will remove it  as it could not understand that this selctor is used somewhere ===> the reason for that is webpack will convert all css selector to some kind of unredeable hash (we did it in config files) during build process for production build*/
+/* purgecss ignore */
+.notification {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  margin-bottom: 0;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>To Do List Application</title>
+    <!-- <link rel="stylesheet" href="./src/styles/index.css" /> we will import this in our index.js file however you can import it in any other js file based on your need -->
+    <!-- now in template.html we dont need to specify link by ourselve webpack will add refrence here by itself <link rel="stylesheet" href="./dist/main.ed8beb5bdfc6.css" /> -->
+  </head>
+  <body>
+    <img
+      class="header-image"
+      src="../images/header-image.jpg"
+      alt="To Do List"
+    />
+    <h1>To Do List</h1>
+    <div class="todolist-wrapper">
+      <input class="new-todo" placeholder="Enter text here" autofocus />
+      <ul class="todo-list"></ul>
+    </div>
+    <div class="motivational-picture-container"></div>
+    <div
+      class="modal fade"
+      id="modal-delete-todo"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalDeleteTodo"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>Do you really want to Delete this Item?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              id="modal-delete-button"
+              type="button"
+              class="btn btn-primary"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--now in template.html we dont need to specify script by ourselve webpack will add refrence here by itself <script src="./dist/main.f5d09a84472b.js"></script> -->
+    <!-- this part we are doing by ourself <script src="./dist/main.f5d09a84472b.js"></script> after generating bundles, there is special plugin that can update during build process this plugin is called html webpack plugin it can create html file from scratch so we dont have to worry about that anymore since we 
+  are going to automatically generate html both for production and developement builds I can add this plugin to files with common webpack configuration
+  --></body>
+</html>

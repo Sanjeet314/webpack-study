@@ -1,0 +1,49 @@
+{
+  "presets": ["@babel/preset-typescript"],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-pipeline-operator",
+      {
+        "proposal": "minimal"
+      }
+    ]
+  ],
+  "env": {
+    //how babel knows about environment to use? in packag.json we can add NODE_ENV=production or BABEL_ENV=production
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "useBuiltIns": "usage", // helps to add ployfils ==> possiblr beacuse of core js library we will have to install it
+            "corejs": {
+              "version": 3,
+              "proposals": true
+            },
+            "debug": true // in cli on running npm run build it will show waht plotfills will be used based on browserlist provided by you
+          }
+        ] //this will tell babel to support env preset in order to support ecmasc6 and and and later specifiactions. env present need to have list of target browser in order to genrate the list of plugins needed for babel for e.g if your applications only needed to support latest version of chrome you dont have to transform arrow function to regular js function bcoz chrome supports arraow functiuons out of the box. however if your apploication needs to support on ie older version that you need to transform them. env presrt will figure out itself which things it needs to transform and whic hit doesnt based on list of supported browsers, you only need to tell it which browser it needs to support and wee already doing it we have browsertlistrc file
+      ]
+      //   "plugins": [
+      //     [
+      //       "@babel/plugin-proposal-pipeline-operator",
+      //       {
+      //         "proposal": "minimal"
+      //       }
+      //     ]
+      //   ]
+    },
+    "dev": {
+      "presets": [["@babel/preset-env"]],
+      "plugins": ["@emotion"]
+      //   "plugins": [
+      //     [
+      //       "@babel/plugin-proposal-pipeline-operator",
+      //       {
+      //         "proposal": "minimal"
+      //       }
+      //     ]
+      //   ]
+    }
+  }
+}
